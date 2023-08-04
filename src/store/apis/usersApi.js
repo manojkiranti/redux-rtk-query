@@ -9,7 +9,7 @@ const usersApi = createApi({
     return {
       fetchUsers: builder.query({
         providesTags: (result, error) => {
-          console.log("error", error);
+          console.log("result", result);
           return result
             ? [
                 ...result.map(({ id }) => ({ type: "User", id })),
@@ -34,9 +34,19 @@ const usersApi = createApi({
           };
         },
       }),
+      deleteUser: builder.mutation({
+        invalidatesTags: [{ type: "User", id: "USER" }],
+        query: (user) => {
+          return {
+            url: `/users/${user.id}`,
+            method: "DELETE",
+          };
+        },
+      }),
     };
   },
 });
 
-export const { useFetchUsersQuery, useAddUserMutation } = usersApi;
+export const { useFetchUsersQuery, useAddUserMutation, useDeleteUserMutation } =
+  usersApi;
 export { usersApi };

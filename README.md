@@ -27,7 +27,7 @@ To start the React development server, run:
 
 bash
 Copy code
-npm run start
+npm run dev
 This will launch the application in development mode.
 
 To start the JSON-Server for API simulation, run:
@@ -43,5 +43,3 @@ Built With
 React - JavaScript library for building user interfaces.
 Redux with RTK Query - State management library with built-in API data fetching capabilities.
 JSON-Server - Simple JSON-based backend for prototyping and mocking API responses.
-License
-This project is licensed under the MIT License.
